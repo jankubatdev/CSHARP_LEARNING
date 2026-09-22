@@ -17,4 +17,11 @@ Console.WriteLine($"Łącznie: {suma}s");
 int ile = kolejka.Count(z => z is ZadanieRenderu);
 
 Console.WriteLine($"Zadan renderu jest {ile}");
+Console.WriteLine($"Łącznie: {kolejka.Sum(z => z.SzacowanyCzasSekund())}");
 
+kolejka.Sort();
+
+static void WypiszStatus(IWykonalne element)
+{
+    Console.WriteLine($"zakonczone: {element.Zakonczone}, czas {element.SzacowanyCzasSekund()}");
+}

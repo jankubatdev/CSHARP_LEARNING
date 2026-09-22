@@ -1,4 +1,4 @@
-public abstract class Zadanie
+public abstract class Zadanie : IWykonalne, IComparable<Zadanie>
 {
     public string Nazwa {  get; set; }
     public int Priorytet { get; set; }
@@ -19,4 +19,10 @@ public abstract class Zadanie
         $"[{(Zakonczone ? "x" : " ")}] {Nazwa} (p{Priorytet})  {DataUtworzenia}";
 
     public abstract int SzacowanyCzasSekund();
+
+    public int CompareTo(Zadanie? inne)
+    {
+        if (inne is null) return 1;
+        return Priorytet.CompareTo(inne.Priorytet);
+    }
 }
