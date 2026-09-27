@@ -4,8 +4,28 @@ public class Lek
 {
     public static int LiczbaLekow { get; private set; } = 0;
     public string Nazwa { get; set; }
-    public decimal Cena { get; set; }
-    public int IloscNaStanie { get; set; }
+    private decimal _cena;
+    public decimal Cena
+    {
+        get => _cena;
+        set
+        {
+            if(value<0)
+                throw new ArgumentException("Cena nie może być ujemna.");
+            _cena = value;
+        }
+    }
+    private int _iloscNaStanie;
+    public int IloscNaStanie
+    {
+        get => _iloscNaStanie;
+        set
+        {
+            if(value < 0)
+                throw new ArgumentException("Ilość na stanie nie może być ujemna.");
+            _iloscNaStanie = value;
+        }
+    }
 
     public Lek(string nazwa, decimal cena, int ilosc)
     {
