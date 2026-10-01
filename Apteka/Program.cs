@@ -58,12 +58,8 @@ class Program
         Console.WriteLine(lekRp);
     }
 
-    static void Main(string[] args)
+    static void PolymorphismDemo()
     {
-        // Apteka();
-        // MutateAndDisplay();
-        // InheritanceDemo();
-
         Lek lek3 = new LekNaRecepte("Ibuprofen", 12.99m, 15, "Dr. Nowak");
         Console.WriteLine(lek3);
 
@@ -74,9 +70,35 @@ class Program
             new Lek("Witamina C", 5m, 100),
         };
 
-        foreach(var pozycja in magazyn)
+        foreach (var pozycja in magazyn)
         {
             Console.WriteLine(pozycja);
         }
+    }
+
+    static void AbstractClassDemo()
+    {
+        var Ksztalty = new Ksztalt[]
+        {
+            new Kolo(5),
+            new Prostokat(4, 6)
+        };
+
+        foreach (var ksztalt in Ksztalty)
+        {
+            Console.WriteLine($"Pole ksztaltu: {ksztalt.Pole()}");
+        }
+
+        //var Kszalt1 = new Ksztalt();
+    }
+
+    static void Main(string[] args)
+    {
+        // Apteka();
+        // MutateAndDisplay();
+        // InheritanceDemo();
+        // PolymorphismDemo();
+        // AbstractClassDemo();
+
     }
 }
