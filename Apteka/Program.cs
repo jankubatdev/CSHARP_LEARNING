@@ -37,10 +37,8 @@ class Program
         Console.WriteLine($"Point mutated in a method: {p}");
     }
 
-    static void Main(string[] args)
+    static void MutateAndDisplay()
     {
-        // Apteka();
-
         var p1 = new MutablePoint(1, 2);
         var p2 = p1;
         p2.Y = 200;
@@ -48,5 +46,22 @@ class Program
         Console.WriteLine($"{nameof(p2)}: {p2}");
         MutateAndDisplay(p2);
         Console.WriteLine($"{nameof(p2)} after passing to a method: {p2}");
+    }
+
+    static void Main(string[] args)
+    {
+        // Apteka();
+        // MutateAndDisplay();
+
+        // dziedziczenie
+
+        var lekRp = new LekNaRecepte("Amoksycylina", 15.99m, 20, "Dr. Kowalski");
+
+        Console.WriteLine(lekRp);
+        Console.WriteLine(lekRp.CzyDostepny());
+        Console.WriteLine(lekRp.Lekarz);
+
+        lekRp.Sprzedaj(5);
+        Console.WriteLine(lekRp);
     }
 }
