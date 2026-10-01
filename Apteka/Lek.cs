@@ -55,3 +55,16 @@ public class Lek
         Console.WriteLine($"Mamy {LiczbaLekow} lekow w aptece.");
     }
 }
+
+public class LekNaRecepte : Lek
+{
+    public string Lekarz { get; set; }
+    public LekNaRecepte(string nazwa, decimal cena, int ilosc, string lekarz) : base(nazwa, cena, ilosc)
+    {
+        Lekarz = lekarz;
+    }
+    public override string ToString()
+    {
+        return base.ToString() + $", Lekarz: {Lekarz}";
+    }
+}
