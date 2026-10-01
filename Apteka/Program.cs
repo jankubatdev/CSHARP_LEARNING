@@ -48,20 +48,35 @@ class Program
         Console.WriteLine($"{nameof(p2)} after passing to a method: {p2}");
     }
 
+    static void InheritanceDemo()
+    {
+        var lekRp = new LekNaRecepte("Amoksycylina", 15.99m, 20, "Dr. Kowalski");
+        Console.WriteLine(lekRp);
+        Console.WriteLine(lekRp.CzyDostepny());
+        Console.WriteLine(lekRp.Lekarz);
+        lekRp.Sprzedaj(5);
+        Console.WriteLine(lekRp);
+    }
+
     static void Main(string[] args)
     {
         // Apteka();
         // MutateAndDisplay();
+        // InheritanceDemo();
 
-        // dziedziczenie
+        Lek lek3 = new LekNaRecepte("Ibuprofen", 12.99m, 15, "Dr. Nowak");
+        Console.WriteLine(lek3);
 
-        var lekRp = new LekNaRecepte("Amoksycylina", 15.99m, 20, "Dr. Kowalski");
+        Lek[] magazyn = new Lek[]
+        {
+            new Lek("Paracetamol", 10m, 30),
+            new LekNaRecepte("Tramadol", 45m, 8, "Dr. Zielińska"),
+            new Lek("Witamina C", 5m, 100),
+        };
 
-        Console.WriteLine(lekRp);
-        Console.WriteLine(lekRp.CzyDostepny());
-        Console.WriteLine(lekRp.Lekarz);
-
-        lekRp.Sprzedaj(5);
-        Console.WriteLine(lekRp);
+        foreach(var pozycja in magazyn)
+        {
+            Console.WriteLine(pozycja);
+        }
     }
 }

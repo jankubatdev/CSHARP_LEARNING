@@ -63,4 +63,8 @@ public class LekNaRecepte : Lek
     {
         Lekarz = lekarz;
     }
+    public override string ToString()
+    {
+        return base.ToString() + $", Lekarz: {Lekarz}";
+    }
 }
