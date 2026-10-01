@@ -1,27 +1,52 @@
 ﻿using Apteka;
 
-Console.WriteLine("Hello, World!");
-
-var z = 5;
-Console.WriteLine(z);
-    
-var lek = new Lek("Paracetamol", 59.99m, 10);
-Console.WriteLine(lek);
-Console.WriteLine(lek.CzyDostepny());
-
-lek.Sprzedaj(4);
-Console.WriteLine(lek);
-
-var lek2 = new Lek("Ibuprom", 24.50m, 0);
-Console.WriteLine(lek2.CzyDostepny());
-
-Lek.WypiszLiczbeLekow();
-
-try
+class Program
 {
-    var zlyLek = new Lek("Test", -10m, 5);
-}
-catch (ArgumentException ex)
-{
-    Console.WriteLine($"Zlapano wyjatek: {ex.Message}");
+    static void Apteka()
+    {
+        Console.WriteLine("Hello, World!");
+
+        var z = 5;
+        Console.WriteLine(z);
+
+        var lek = new Lek("Paracetamol", 59.99m, 10);
+        Console.WriteLine(lek);
+        Console.WriteLine(lek.CzyDostepny());
+
+        lek.Sprzedaj(4);
+        Console.WriteLine(lek);
+
+        var lek2 = new Lek("Ibuprom", 24.50m, 0);
+        Console.WriteLine(lek2.CzyDostepny());
+
+        Lek.WypiszLiczbeLekow();
+
+        try
+        {
+            var zlyLek = new Lek("Test", -10m, 5);
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Zlapano wyjatek: {ex.Message}");
+        }
+    }
+
+    private static void MutateAndDisplay(MutablePoint p)
+    {
+        p.X = 100;
+        Console.WriteLine($"Point mutated in a method: {p}");
+    }
+
+    static void Main(string[] args)
+    {
+        // Apteka();
+
+        var p1 = new MutablePoint(1, 2);
+        var p2 = p1;
+        p2.Y = 200;
+        Console.WriteLine($"{nameof(p1)} after {nameof(p2)} is modified: {p1}");
+        Console.WriteLine($"{nameof(p2)}: {p2}");
+        MutateAndDisplay(p2);
+        Console.WriteLine($"{nameof(p2)} after passing to a method: {p2}");
+    }
 }
