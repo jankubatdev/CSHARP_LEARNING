@@ -92,6 +92,18 @@ class Program
         //var Kszalt1 = new Ksztalt();
     }
 
+    static void InterfaceDemo()
+    {
+        IPlatny[] doZaplaty =
+        {
+            new Lek("Paracetamol", 10m, 30),
+            new LekNaRecepte("Tramadol", 45m, 8, "Dr. Zielińska"),
+        };
+
+        foreach (var p in doZaplaty)
+            Console.WriteLine($"Koszt 3 szt.: {p.ObliczKoszt(3)}");
+    }
+
     static void Main(string[] args)
     {
         // Apteka();
@@ -99,6 +111,6 @@ class Program
         // InheritanceDemo();
         // PolymorphismDemo();
         // AbstractClassDemo();
-
+        InterfaceDemo();
     }
 }

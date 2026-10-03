@@ -1,6 +1,6 @@
 ﻿namespace Apteka;
 
-public class Lek
+public class Lek : IPlatny
 {
     public static int LiczbaLekow { get; private set; } = 0;
     public string Nazwa { get; set; }
@@ -54,6 +54,8 @@ public class Lek
     {
         Console.WriteLine($"Mamy {LiczbaLekow} lekow w aptece.");
     }
+
+    public decimal ObliczKoszt(int ilosc) => Cena * ilosc;
 }
 
 public class LekNaRecepte : Lek
