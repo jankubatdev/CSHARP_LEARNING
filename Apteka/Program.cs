@@ -98,10 +98,34 @@ class Program
         {
             new Lek("Paracetamol", 10m, 30),
             new LekNaRecepte("Tramadol", 45m, 8, "Dr. Zielińska"),
+            new Usluga("Konsultacja", 20, 100m),
         };
 
         foreach (var p in doZaplaty)
             Console.WriteLine($"Koszt 3 szt.: {p.ObliczKoszt(3)}");
+        foreach (var p in doZaplaty)
+            if(p is IOpisywalny o)
+                Console.WriteLine($"{o.Opisz()}");
+    }
+
+    static void Structures()
+    {
+        var dawka = new Dawka(2);
+        var dawka2 = new DawkaKlasa(2);
+        Console.WriteLine($"Suma dawek: {dawka.Mg + dawka2.Mg}");
+        var dawkaKopia = dawka;
+        var dawka2Kopia = dawka2;
+        dawkaKopia.Mg = 5;
+        dawka2Kopia.Mg = 5;
+        Console.WriteLine($"Struct po zmianie kopii:{dawka.Mg}");
+        Console.WriteLine($"Class po zmianie kopii:{dawka2.Mg}");
+        dawka.Mg = 2;
+        dawka2.Mg = 2;
+        var nowaDawka = new Dawka(dawka.Mg);
+        var nowaDawka2 = new DawkaKlasa(dawka2.Mg);
+        Console.WriteLine(nowaDawka.Mg);
+        Console.WriteLine(nowaDawka2.Mg);
+        // class kopiuje referencje - obie zmienne wskazuja na ten sam obiekt, struct kopiuje wartosci i powstaje niezalezna kopia
     }
 
     static void Main(string[] args)
@@ -111,6 +135,7 @@ class Program
         // InheritanceDemo();
         // PolymorphismDemo();
         // AbstractClassDemo();
-        InterfaceDemo();
+        // InterfaceDemo();
+        Structures();
     }
 }

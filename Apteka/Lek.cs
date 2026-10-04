@@ -1,6 +1,6 @@
 ﻿namespace Apteka;
 
-public class Lek : IPlatny
+public class Lek : IPlatny, IOpisywalny
 {
     public static int LiczbaLekow { get; private set; } = 0;
     public string Nazwa { get; set; }
@@ -56,6 +56,9 @@ public class Lek : IPlatny
     }
 
     public decimal ObliczKoszt(int ilosc) => Cena * ilosc;
+
+    public string Opisz() => $"To jest opis leku o nazwie: {Nazwa}";
+
 }
 
 public class LekNaRecepte : Lek
