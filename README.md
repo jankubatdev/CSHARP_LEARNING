@@ -3,7 +3,7 @@
 # and run the following:
 `dotnet run --project .\Apteka\`\
 or\
-`dotnet run --project .\ConsoleApp1\`\
+`dotnet run --project .\ConsoleApp1\`
 
 
 resources:
