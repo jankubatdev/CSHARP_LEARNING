@@ -12,3 +12,15 @@ public struct MutablePoint
         return $"({X}, {Y})";
     }
 }
+
+public struct Dawka
+{
+    public int Mg { get; set; }
+    public Dawka(int mg) => Mg = mg;
+}
+
+class DawkaKlasa
+{
+    public int Mg { get; set; }
+    public DawkaKlasa(int mg) => Mg = mg;
+}
