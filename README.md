@@ -2,7 +2,7 @@
 # Go to \CSHARP_LEARNING
 # and run the following:
 dotnet run --project .\Apteka\
-or
+or\
 dotnet run --project .\ConsoleApp1\
 
 resources:
