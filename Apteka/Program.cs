@@ -98,10 +98,14 @@ class Program
         {
             new Lek("Paracetamol", 10m, 30),
             new LekNaRecepte("Tramadol", 45m, 8, "Dr. Zielińska"),
+            new Usluga("Konsultacja", 20, 100m),
         };
 
         foreach (var p in doZaplaty)
             Console.WriteLine($"Koszt 3 szt.: {p.ObliczKoszt(3)}");
+        foreach (var p in doZaplaty)
+            if(p is IOpisywalny o)
+                Console.WriteLine($"{o.Opisz()}");
     }
 
     static void Main(string[] args)
