@@ -26,3 +26,8 @@ public abstract class Zadanie : IWykonalne, IComparable<Zadanie>
         return Priorytet.CompareTo(inne.Priorytet);
     }
 }
+
+public class Testowe
+{
+
+}
