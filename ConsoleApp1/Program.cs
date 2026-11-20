@@ -7,10 +7,11 @@
 };
 
 int suma = 0;
-foreach (var z in kolejka)
-{
-    if (z is ZadanieRenderu render)
+foreach (var z in kolejka) {
+    if (z is ZadanieRenderu render) {
         Console.WriteLine($"{render.Nazwa}: {render.Klatki} klatek");
+    }
+    suma += z.SzacowanyCzasSekund();
 }
 Console.WriteLine($"Łącznie: {suma}s");
 
@@ -20,6 +21,8 @@ Console.WriteLine($"Zadan renderu jest {ile}");
 Console.WriteLine($"Łącznie: {kolejka.Sum(z => z.SzacowanyCzasSekund())}");
 
 kolejka.Sort();
+foreach (var z in kolejka) {
+}
 
 static void WypiszStatus(IWykonalne element)
 {
